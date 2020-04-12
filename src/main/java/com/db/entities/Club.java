@@ -15,21 +15,21 @@ public class Club {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    Integer id;
+    private Integer id;
 
     @NotNull
-    String name;
+    private String name;
 
     @CreationTimestamp
-    Timestamp created;
+    private Timestamp created;
 
     @UpdateTimestamp
-    Timestamp updated;
+    private Timestamp updated;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "club")
-    List<User> members;
+    private List<User> members;
 
-    protected Club(){};
+    protected Club(){}
 
     static public Club create(String name){
 

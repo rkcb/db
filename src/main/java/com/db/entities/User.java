@@ -2,11 +2,14 @@ package com.db.entities;
 
 import lombok.Data;
 import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.boot.context.properties.bind.DefaultValue;
 import org.springframework.data.annotation.ReadOnlyProperty;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.sql.Timestamp;
 import java.util.List;
 
 /**
@@ -31,15 +34,25 @@ public class User {
     private Boolean enabled;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    Club club;
+    private Club club;
 
-    @ManyToMany(mappedBy = "registeredPlayers")
-    List<Tournament> registeredInTournaments;
+    @ManyToMany(mappedBy = "registeredPlayers", cascade = CascadeType.ALL)
+    private List<Tournament> registeredInTournaments;
 
-    @ManyToMany(mappedBy = "playedPlayers")
-    List<Tournament> playedTournaments;
+    @ManyToMany(mappedBy = "playedPlayers", cascade = CascadeType.ALL)
+    private List<Tournament> playedTournaments;
 
     protected User(){}
+
+    @CreationTimestamp
+    private Timestamp created;
+
+    @UpdateTimestamp
+    private Timestamp updated;
+
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    private List<Masterpoint> masterpoints;
 
     public static User create(String username){
 

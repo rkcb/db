@@ -11,7 +11,7 @@ public class Tool {
         calendar = Calendar.getInstance();
     }
 
-    Timestamp getTimestamp(){
+    public static Timestamp getTimestamp(){
         return new Timestamp(calendar.getTimeInMillis());
     }
 

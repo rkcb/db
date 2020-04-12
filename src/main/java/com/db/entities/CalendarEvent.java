@@ -1,6 +1,8 @@
 package com.db.entities;
 
 import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
@@ -25,6 +27,12 @@ public class CalendarEvent {
     private boolean masterpoints;
 
     private String price;
+
+    @CreationTimestamp
+    private Timestamp created;
+
+    @UpdateTimestamp
+    private Timestamp updated;
 
     @OneToOne
     private Tournament tournament;
