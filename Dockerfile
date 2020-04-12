@@ -1,0 +1,7 @@
+
+FROM postgres
+
+ENV POSTGRES_USER=postgres
+ENV POSTGRES_PASSWORD=NakkiKukkaroKallisto1234!
+ENV POSTGRES_DB=testdb
+
