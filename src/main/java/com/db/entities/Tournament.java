@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.List;
 
 /**
  * Tournament keeps record of players who registered in a tournament and
@@ -20,6 +21,12 @@ public class Tournament  {
 
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "tournament")
     private CalendarEvent calendarEvent;
+
+    @ManyToMany
+    private List<User> playedPlayers;
+
+    @ManyToMany
+    private List<User> registeredPlayers;
 
     protected Tournament(){}
 

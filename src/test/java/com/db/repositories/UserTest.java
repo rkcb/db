@@ -5,15 +5,11 @@ import org.junit.jupiter.api.TestInstance;
 import org.springframework.util.Assert;
 
 
-public class User {
-
-
+public class UserTest {
 
     @Test
     public void trivialTest(){
         Assert.isTrue(true, "is true");
     }
-
-
 
 }
